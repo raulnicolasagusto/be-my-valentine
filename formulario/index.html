@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear tu link 💘</title>
+
+  <meta name="robots" content="noindex,nofollow">
+
+  <link rel="stylesheet" href="formulario.css" />
+</head>
+<body>
+
+  <!-- Fondo animado -->
+  <div class="floating-background"></div>
+
+  <main class="form-container">
+    <h1>💖 Crea tu mensaje 💖</h1>
+
+    <p class="desc">
+      Completa los datos y genera tu link mágico para San Valentín ✨
+    </p>
+
+    <form id="formulario">
+      <input
+        type="text"
+        id="nombre"
+        placeholder="Nombre de tu enamorada/o"
+        required
+        maxlength="30"
+      />
+
+     <input
+        type="text"
+        id="alias"
+        placeholder="Cómo lo/la llamas (Amor, Bebé, Mi vida...)"
+        maxlength="20"
+      />
+      <button type="submit">
+        Generar link 💘
+      </button>
+    </form>
+
+    <!-- Link result area -->
+    <div id="resultado" class="link-result hidden">
+      <h3>Copia este link para Enviarlo</h3>
+      <div class="link-container">
+        <a id="generated-link" class="generated-link" target="_blank"></a>
+        <button id="copy-btn" class="copy-btn">Copiar</button>
+      </div>
+    </div>
+
+    <!-- ZONA ADSENSE -->
+    <div class="ads">
+      <!-- Pegá aquí tu código de AdSense -->
+    </div>
+  </main>
+
+  <script src="formulario.js"></script>
+</body>
+</html>

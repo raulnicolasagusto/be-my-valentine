@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>San Valentín 💖</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Fondo animado -->
+  <div class="floating-background"></div>
+
+  <main class="container">
+    <span class="badge">❤️ Especialmente para ti ❤️</span>
+
+    <h1>
+            <span id="nombre"></span>, <br />
+                ¿quieres ser mi <span class="gradient-text">
+                San Valentín<span id="valentinAlias"></span>
+             </span>?
+    </h1>
+
+    <p class="subtitle">
+      "Eres la luz que ilumina cada uno de mis días y el latido más dulce de mi corazón."
+    </p>
+
+    <div class="buttons">
+      <button id="yesBtn" class="yes-btn">
+        ❤️ ¡SÍ, ACEPTO!
+        <span class="recommended">MUY RECOMENDADO!</span>
+      </button>
+
+      <button id="noBtn" class="no-btn">
+        No
+      </button>
+    </div>
+  </main>
+
+  <!-- MODAL -->
+<div id="loveModal" class="modal hidden">
+  <div class="modal-content">
+    <div class="modal-hearts">
+      ❤️ ❤️ ❤️ ❤️ ❤️
+    </div>
+
+    <h2>La mejor decisión! 😘💖</h2>
+
+    <div class="gif-box">
+      <img id="loveGif" src="" alt="Love gif">
+    </div>
+
+    <p class="love-text">Te Amo ❤️</p>
+
+    <button class="close-btn" id="closeModal">Cerrar</button>
+  </div>
+</div>
+
+<!-- LLUVIA DE CORAZONES -->
+<div id="heartRain"></div>
+
+
+  <footer>
+    <span id="footerText">❤️ Hecho con amor ❤️</span>
+ </footer>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
