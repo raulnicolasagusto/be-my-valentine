@@ -45,7 +45,8 @@ if (footerText && aliasFinal) {
 const noBtn = document.getElementById("noBtn");
 
 function moveNoButton() {
-  const padding = 80;
+  const isMobile = window.innerWidth <= 768;
+  const padding = isMobile ? 40 : 80; // Less padding on mobile
   const maxX = window.innerWidth - noBtn.offsetWidth - padding;
   const maxY = window.innerHeight - noBtn.offsetHeight - padding;
 
@@ -65,7 +66,12 @@ function positionNoButtonNextToYes() {
     
     // Calculate position to the right of the "Yes" button
     const yesRightEdge = yesRect.right - containerRect.left;
-    const desiredLeft = yesRightEdge + 20; // 20px gap between buttons
+    
+    // Check if we're on mobile and adjust spacing accordingly
+    const isMobile = window.innerWidth <= 768;
+    const gap = isMobile ? 15 : 20; // Smaller gap on mobile
+    
+    const desiredLeft = Math.min(yesRightEdge + gap, window.innerWidth - noBtn.offsetWidth - 20); // Ensure it stays within bounds
     
     // Center vertically with the "Yes" button
     const verticalCenter = yesRect.top - containerRect.top + (yesRect.height / 2) - (noBtn.offsetHeight / 2);

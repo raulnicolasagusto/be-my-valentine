@@ -10,6 +10,7 @@ body {
   background: radial-gradient(circle, #fff1f2, #ffd6e0);
   overflow: hidden;
   color: #3a0d0d;
+  overscroll-behavior-x: none; /* Prevent horizontal overscroll */
 }
 
 .container {
@@ -75,6 +76,23 @@ h1 {
   cursor: pointer;
   box-shadow: 0 25px 60px rgba(255,45,85,.45);
   animation: heartbeat 2s infinite;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .yes-btn {
+    padding: 18px 35px;
+    font-size: 1.4rem;
+  }
+  
+  .no-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  
+  .buttons {
+    gap: 20px;
+  }
 }
 
 .yes-btn:hover {
