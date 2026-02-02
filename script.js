@@ -61,30 +61,36 @@ function moveNoButton() {
 function positionNoButtonNextToYes() {
   const yesBtn = document.getElementById("yesBtn");
   if (yesBtn && noBtn) {
-    const yesRect = yesBtn.getBoundingClientRect();
-    const containerRect = document.querySelector('.container').getBoundingClientRect();
-    
-    // Calculate position to the right of the "Yes" button
-    const yesRightEdge = yesRect.right - containerRect.left;
-    
-    // Check if we're on mobile and adjust spacing accordingly
     const isMobile = window.innerWidth <= 768;
-    const gap = isMobile ? 10 : 20; // Adjust gap on mobile
+    const containerRect = document.querySelector('.container').getBoundingClientRect();
+    const yesRect = yesBtn.getBoundingClientRect();
     
-    // Ensure the "No" button stays within screen bounds
-    const desiredLeft = Math.max(
-      20, // Minimum distance from left edge
-      Math.min(
-        yesRightEdge + gap,
-        window.innerWidth - noBtn.offsetWidth - 20 // Maximum distance from right edge
-      )
-    );
-    
-    // Center vertically with the "Yes" button
-    const verticalCenter = yesRect.top - containerRect.top + (yesRect.height / 2) - (noBtn.offsetHeight / 2);
-    
-    noBtn.style.left = `${desiredLeft}px`;
-    noBtn.style.top = `${verticalCenter}px`;
+    if (isMobile) {
+      // On mobile, position it to the right side of the screen
+      const padding = 20;
+      const desiredLeft = window.innerWidth - noBtn.offsetWidth - padding;
+      const verticalCenter = yesRect.top - containerRect.top + (yesRect.height / 2) - (noBtn.offsetHeight / 2);
+      
+      noBtn.style.left = `${desiredLeft}px`;
+      noBtn.style.top = `${verticalCenter}px`;
+    } else {
+      // On desktop, keep original logic of appearing next to Yes button
+      const yesRightEdge = yesRect.right - containerRect.left;
+      const gap = 20;
+      
+      const desiredLeft = Math.max(
+        20,
+        Math.min(
+          yesRightEdge + gap,
+          window.innerWidth - noBtn.offsetWidth - 20
+        )
+      );
+      
+      const verticalCenter = yesRect.top - containerRect.top + (yesRect.height / 2) - (noBtn.offsetHeight / 2);
+      
+      noBtn.style.left = `${desiredLeft}px`;
+      noBtn.style.top = `${verticalCenter}px`;
+    }
   }
 }
 
