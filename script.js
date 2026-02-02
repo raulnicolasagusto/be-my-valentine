@@ -69,9 +69,16 @@ function positionNoButtonNextToYes() {
     
     // Check if we're on mobile and adjust spacing accordingly
     const isMobile = window.innerWidth <= 768;
-    const gap = isMobile ? 15 : 20; // Smaller gap on mobile
+    const gap = isMobile ? 10 : 20; // Adjust gap on mobile
     
-    const desiredLeft = Math.min(yesRightEdge + gap, window.innerWidth - noBtn.offsetWidth - 20); // Ensure it stays within bounds
+    // Ensure the "No" button stays within screen bounds
+    const desiredLeft = Math.max(
+      20, // Minimum distance from left edge
+      Math.min(
+        yesRightEdge + gap,
+        window.innerWidth - noBtn.offsetWidth - 20 // Maximum distance from right edge
+      )
+    );
     
     // Center vertically with the "Yes" button
     const verticalCenter = yesRect.top - containerRect.top + (yesRect.height / 2) - (noBtn.offsetHeight / 2);
