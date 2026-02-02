@@ -20,6 +20,18 @@ body {
   /* Prevent horizontal overscroll */
 }
 
+.create-link {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  color: #000;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  font-weight: 600;
+  z-index: 100;
+  pointer-events: auto;
+}
+
 .container {
   position: relative;
   z-index: 10;
