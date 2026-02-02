@@ -3,7 +3,11 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow-x: hidden;
+  height: 100%;
+  overflow: hidden !important;
+  /* ABSOLUTELY NO SCROLLING */
+  position: fixed;
+  inset: 0;
 }
 
 body {
@@ -192,21 +196,35 @@ h1 {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
+  left: 0;
   width: 100%;
   text-align: center;
   font-weight: 700;
   color: #7a2e2e;
+  z-index: 20;
+  pointer-events: none;
+  /* Don't block clicks */
 }
 
 /* Fondo animado */
+.floating-background {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  /* Ensure icons don't leak out */
+}
+
 .floating-background span {
   position: absolute;
   bottom: -50px;
   font-size: 30px;
   opacity: 0.25;
   animation: floatUp linear infinite;
+  will-change: transform;
 }
 
 @keyframes floatUp {
@@ -238,13 +256,19 @@ footer {
 
 .modal-content {
   background: #fff1f2;
-  padding: 30px 20px;
+  padding: 20px;
   border-radius: 24px;
   max-width: 420px;
   width: 90%;
+  max-height: 90vh;
+  /* Ensure it fits height-wise */
+  display: flex;
+  flex-direction: column;
   text-align: center;
   box-shadow: 0 30px 80px rgba(0, 0, 0, .3);
   animation: popIn .4s ease;
+  overflow: hidden;
+  /* Contain everything */
 }
 
 @keyframes popIn {
@@ -272,13 +296,26 @@ footer {
 
 .gif-box {
   width: 100%;
+  flex: 1;
+  /* Allow it to grow/shrink */
+  min-height: 200px;
+  max-height: 350px;
+  /* Constrain height */
   border-radius: 16px;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  background: #ffe4e8;
+  /* Loader placeholder color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .gif-box img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensure GIF fills the box without distortion */
   display: block;
 }
 
@@ -303,17 +340,25 @@ footer {
 /* ============================
    LLUVIA DE CORAZONES
 ============================ */
-#heartRain span {
+#heartRain {
   position: fixed;
-  top: -20px;
+  inset: 0;
+  z-index: 998;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#heartRain span {
+  position: absolute;
+  /* Changed from fixed to absolute within heartRain */
+  top: -40px;
   font-size: 20px;
   animation: fall linear forwards;
-  z-index: 998;
 }
 
 @keyframes fall {
   to {
-    transform: translateY(110vh);
+    transform: translateY(115vh);
     opacity: 0;
   }
 }

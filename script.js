@@ -64,20 +64,20 @@ function positionNoButtonNextToYes() {
     const isMobile = window.innerWidth <= 768;
     const containerRect = document.querySelector('.container').getBoundingClientRect();
     const yesRect = yesBtn.getBoundingClientRect();
-    
+
     if (isMobile) {
       // On mobile, position it to the right side of the screen
       const padding = 20;
       const desiredLeft = window.innerWidth - noBtn.offsetWidth - padding;
       const verticalCenter = yesRect.top - containerRect.top + (yesRect.height / 2) - (noBtn.offsetHeight / 2);
-      
+
       noBtn.style.left = `${desiredLeft}px`;
       noBtn.style.top = `${verticalCenter}px`;
     } else {
       // On desktop, keep original logic of appearing next to Yes button
       const yesRightEdge = yesRect.right - containerRect.left;
       const gap = 20;
-      
+
       const desiredLeft = Math.max(
         20,
         Math.min(
@@ -85,9 +85,9 @@ function positionNoButtonNextToYes() {
           window.innerWidth - noBtn.offsetWidth - 20
         )
       );
-      
+
       const verticalCenter = yesRect.top - containerRect.top + (yesRect.height / 2) - (noBtn.offsetHeight / 2);
-      
+
       noBtn.style.left = `${desiredLeft}px`;
       noBtn.style.top = `${verticalCenter}px`;
     }
@@ -111,7 +111,7 @@ function createFloatingIcon() {
   const span = document.createElement("span");
   span.innerText = icons[Math.floor(Math.random() * icons.length)];
 
-  span.style.left = Math.random() * 100 + "vw";
+  span.style.left = Math.random() * 95 + "vw"; // Stay slightly away from the edge
   span.style.animationDuration = 10 + Math.random() * 10 + "s";
 
   bg.appendChild(span);
@@ -185,7 +185,7 @@ function createHeart() {
   const heart = document.createElement("span");
   heart.innerText = "❤️";
 
-  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.left = Math.random() * 95 + "vw";
   heart.style.fontSize = 14 + Math.random() * 26 + "px";
   heart.style.animationDuration = 4 + Math.random() * 4 + "s";
   heart.style.opacity = 0.9;
@@ -201,7 +201,7 @@ function createHeart() {
 function createHeart() {
   const heart = document.createElement("span");
   heart.innerText = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.left = Math.random() * 95 + "vw";
   heart.style.fontSize = 14 + Math.random() * 20 + "px";
   heart.style.animationDuration = 3 + Math.random() * 3 + "s";
 
