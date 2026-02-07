@@ -1,10 +1,7 @@
-¡De una! 🙌
-Acá tenés un README.md completo, claro y prolijo, listo para copiar/pegar en la raíz del proyecto. Está pensado como proyecto real, no demo escolar: explica qué hace, cómo se usa, cómo se despliega y cómo se monetiza.
-
 # 💖 Be My Valentine – Landing Viral de San Valentín
 
 Proyecto web simple y viral para crear una propuesta romántica interactiva de San Valentín, con links personalizados, animaciones y fondo animado.  
-Pensado para funcionar **100% estático** (sin backend), ideal para **Netlify** y monetización con **Google AdSense**.
+Pensado para funcionar **100% estático** (sin backend), ideal para **Netlify**.
 
 ---
 
